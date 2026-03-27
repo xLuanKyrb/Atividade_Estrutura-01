@@ -103,10 +103,12 @@ public class ArvoreAVL {
             if (atual.esquerdo == null) return atual.direito;
             else if (atual.direito == null) return atual.esquerdo;
 
-                Node temp = atual.direito
-            {
-
+                Node temp = atual.direito;
+                while (temp.esquerdo !=null) temp = temp.esquerdo;
+                atual.valor = temp.valor;
+                atual.direito = removerRecursivo(atual.direito, temp.valor);
             }
-        }
+        return atual;
+
     }
 }

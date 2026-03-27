@@ -63,7 +63,7 @@ public class Main {
                         case 3:
                             System.out.println("Digite o valor que deseja buscar: ");
                             int valBusca = scanner.nextInt();
-                            boolean encontrou = (opcaoArvore == 1) ? bst.buscar(valBusca) : avl.buscar()
+                            boolean encontrou = (opcaoArvore == 1) ? bst.buscar(valBusca) : avl.buscar(valBusca);
                             if (encontrou) {
                                 System.out.println("O valor " + valBusca + " Está na árvore");
                             } else {
