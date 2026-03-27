@@ -24,7 +24,7 @@ public class ArvoreAVL {
         y.esquerdo = T2;
 
         y.altura = Math.max(getAltura(y.esquerdo), getAltura(y.direito)) + 1;
-        x.altura = Math.max(getAltura(y.esquerdo), getAltura(x.direito)) + 1;
+        x.altura = Math.max(getAltura(x.esquerdo), getAltura(x.direito)) + 1;
 
         return x;
     }
@@ -35,6 +35,9 @@ public class ArvoreAVL {
 
         y.esquerdo = x;
         x.direito = T2;
+
+        x.altura = Math.max(getAltura(x.esquerdo), getAltura(x.direito)) + 1;
+        y.altura = Math.max(getAltura(y.esquerdo), getAltura(y.direito)) + 1;
 
         return y;
     }
@@ -56,15 +59,15 @@ public class ArvoreAVL {
         if (balanceamento > 1 && valor < node.esquerdo.valor)
             return rotacaoDireita(node);
 
-        if (balanceamento > -1 && valor < node.direito.valor)
+        if (balanceamento < -1 && valor > node.direito.valor)
             return rotacaoEsquerda(node);
 
-        if (balanceamento > 1 && valor < node.esquerdo.valor) {
+        if (balanceamento > 1 && valor > node.esquerdo.valor) {
             node.esquerdo = rotacaoEsquerda(node.esquerdo);
             return rotacaoDireita(node);
         }
 
-        if (balanceamento > -1 && valor < node.direito.valor) {
+        if (balanceamento < -1 && valor < node.direito.valor) {
             node.direito = rotacaoDireita(node.direito);
             return rotacaoEsquerda(node);
         }
