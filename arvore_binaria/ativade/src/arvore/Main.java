@@ -11,6 +11,7 @@ public class Main {
                 ---------------MENU DE ARVORES-------------
                 1. Árvore Binária de Busca (BST)
                 2. Árvore AVL
+                3. Árvore Rubro-Negro
                 0. Sair do Programa
                 """;
         String menuSecundario = """
@@ -28,12 +29,16 @@ public class Main {
             System.out.println(menuPrincipal);
             opcaoArvore = scanner.nextInt();
 
-            if (opcaoArvore == 1 || opcaoArvore == 2){
+            if (opcaoArvore == 1 || opcaoArvore == 2 || opcaoArvore == 3){
                 ArvoreBinariaBusca bst = new ArvoreBinariaBusca();
                 ArvoreAVL avl = new ArvoreAVL();
+                ArvoreRubroNegro rn = new ArvoreRubroNegro();
                 int operacao = -1;
 
-                String nomeArvore = (opcaoArvore == 1)? "BST (Sem Balanceamento)" : "AVL (Com Balanceamento)";
+                String nomeArvore = "";
+                if (opcaoArvore == 1) nomeArvore = "BST (Sem Balanceamento)";
+                else if (opcaoArvore == 2) nomeArvore = "AVL (Foco na Altura)";
+                else nomeArvore = "Rubro-Negra (Foco nas Cores)";
 
                 while (operacao != 9) {
                     System.out.println(menuSecundario);

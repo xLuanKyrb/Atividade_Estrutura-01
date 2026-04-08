@@ -4,6 +4,7 @@ public class Node {
     int valor;
     Node esquerdo;
     Node direito;
+    Node pai;
     int altura;
     boolean cor;
 
@@ -12,6 +13,7 @@ public class Node {
         this.valor = valor;
         this.esquerdo = null;
         this.direito = null;
+        this.pai = null;
         this.altura = 1;
         this.cor = true;
     }
