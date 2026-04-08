@@ -40,7 +40,7 @@ public class ArvoreRubroNegro {
             paiAtual = atual;
             if (novoNode.valor < atual.valor) {
                 atual = atual.esquerdo;
-            } else if (novoNode.valor < atual.valor) {
+            } else if (novoNode.valor > atual.valor) {
                 atual = atual.direito;
             } else {
                 return;
@@ -71,7 +71,7 @@ public class ArvoreRubroNegro {
 
         while (k.pai.cor == VERMELHO) {
             if (k.pai == k.pai.pai.direito) {
-                tio = k.pai.pai.direito;
+                tio = k.pai.pai.esquerdo;
 
                 if (tio != null && tio.cor == VERMELHO) {
                     tio.cor = PRETO;
